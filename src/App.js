@@ -2,36 +2,38 @@ import './App.css';
 import Login from './login/Login';
 import Signup from './signup/Signup';
 import Firstpage from './first page/Firstpage';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Header from './header/Header';
+import { RouterProvider, createBrowserRouter, Outlet } from 'react-router-dom';
+
+// Layout-компонент, содержащий Header
+function Layout() {
+  return (
+    <>
+      <Header />
+      <Outlet /> {/* Здесь отображаются дочерние страницы */}
+    </>
+  );
+}
 
 function App() {
-  const route = createBrowserRouter([
-    { /* {
-        path:"/news",
-      element: <News />
-      },*/},
-      { /* {
-        path:"/contact",
-      element: <Contact />
-      },*/},
-      { /* {
-        path:"/About us",
-      element: < />
-      },*/},
+  const router = createBrowserRouter([
     {
-      path:"/",
-      element: <Firstpage />
-    },
-    {path:"/Signup",
-    element: <Signup />,
-    },
-    {path:"/login",
-    element: <Login />,
+      path: '/',
+      element: <Layout />, // Layout с Header
+      children: [
+        { index: true, element: <Firstpage /> },         // путь "/"
+        { path: 'Signup', element: <Signup /> },         // путь "/Signup"
+        { path: 'login', element: <Login /> },           // путь "/login"
+        // { path: 'news', element: <News /> },
+        // { path: 'contact', element: <Contact /> },
+        // { path: 'about-us', element: <AboutUs /> },
+      ],
     },
   ]);
+
   return (
     <div className="App">
-     <RouterProvider router={route}></RouterProvider>
+      <RouterProvider router={router} />
     </div>
   );
 }
