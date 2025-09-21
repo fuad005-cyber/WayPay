@@ -9,7 +9,7 @@ const FirstPage = () => {
         <div className="container">
           {/* Логотип или название */}
           <Link className="navbar-brand fw-bold" to="/">
-            
+            <img src="favicon.ico" alt="" />
           </Link>
 
           {/* Кнопка гамбургер для мобильных */}
