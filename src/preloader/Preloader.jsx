@@ -13,7 +13,7 @@ function Preloader() {
           <span></span>
         </div>
       </div>
-      <h1 className="mt-4 text-primary fw-bold display-5 display-md-4 display-lg-3 text-center">WayPay</h1>
+      <h1 className="mt-4 fw-bold display-5 display-md-4 display-lg-3 text-center">WayPay</h1>
     </div>
   );
 }
