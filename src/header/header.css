@@ -1,0 +1,29 @@
+.navbar-nav .nav-item{
+    color: #F4F4F4;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 15px; 
+}
+.nav-item {
+    position: relative;
+}
+.nav-item::before{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color:  #ffe600;
+    right: 0;
+    bottom: -5px;
+    position: absolute;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.nav-item:hover:before{
+    left:0;
+     width: 100%;
+}
+
