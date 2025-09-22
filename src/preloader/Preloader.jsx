@@ -12,7 +12,9 @@ function Preloader() {
           <span></span>
           <span></span>
         </div>
+        
       </div>
+      <h1>WayPay</h1>
     </div>
   );
 }
