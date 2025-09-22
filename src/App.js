@@ -1,18 +1,18 @@
-import './App.css';
-import Login from './login/Login';
-import Signup from './signup/Signup';
-import Firstpage from './first page/Firstpage';
-import Header from './header/Header';
-import { RouterProvider, createBrowserRouter, Outlet } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Preloader from "./preloader/Preloader";
+import Header from "./header/Header";
+import Firstpage from "./first page/Firstpage";
+import Login from "./login/Login";
+import Signup from "./signup/Signup";
 
-// Layout-компонент, содержащий Header
+// Layout-компонент с Header
 function Layout() {
   return (
     <>
       <Header />
-      <Outlet /> {/* Здесь отображаются дочерние страницы */}
+      <Outlet /> {/* Здесь будут отображаться дочерние страницы */}
     </>
   );
 }
@@ -20,42 +20,28 @@ function Layout() {
 function App() {
   const [loading, setLoading] = useState(true);
 
-  // ⏳ Таймер на 2 секунды
+  // Таймер 2 секунды для preloader
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2000 мс = 2 секунды
-
+    const timer = setTimeout(() => setLoading(false), 3200);
     return () => clearTimeout(timer);
   }, []);
 
-  // Роутер
+  // Роуты
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: <Layout />, // Layout с Header
+      path: "/",
+      element: <Layout />,
       children: [
-        { index: true, element: <Firstpage /> },  // путь "/"
-        { path: 'Signup', element: <Signup /> },  // путь "/Signup"
-        { path: 'login', element: <Login /> },    // путь "/login"
+        { index: true, element: <Firstpage /> },
+        { path: "signup", element: <Signup /> },
+        { path: "login", element: <Login /> },
       ],
     },
   ]);
 
   return (
     <div className="App">
-      {loading ? (
-        // LOADING SCREEN
-        <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-dark text-white">
-          <h1 className="mb-4">Loading...</h1>
-          <div className="spinner-border text-light" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      ) : (
-        // MAIN CONTENT (роуты)
-        <RouterProvider router={router} />
-      )}
+      {loading ? <Preloader /> : <RouterProvider router={router} />}
     </div>
   );
 }
