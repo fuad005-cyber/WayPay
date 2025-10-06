@@ -20,13 +20,22 @@ function Layout() {
 function App() {
   const [loading, setLoading] = useState(true);
 
-  // Таймер 2 секунды для preloader
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3200);
-    return () => clearTimeout(timer);
+    const hasLoaded = sessionStorage.getItem("preloaderShown");
+
+    if (hasLoaded) {
+      setLoading(false); // Если preloader уже показывался, сразу отключаем
+    } else {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem("preloaderShown", "true"); // Отмечаем, что preloader уже был
+      }, 3200); // Время отображения preloader в мс
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
-  // Роуты
+  // Роуты приложения
   const router = createBrowserRouter([
     {
       path: "/",
