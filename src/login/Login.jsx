@@ -5,7 +5,7 @@ const Login = () => {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        {/* 📱 Телефон: col-12, 📟 Планшет: col-md-8, 💻 Ноут: col-lg-6, 🖥 Комп: col-xl-4 */}
+        {/* Телефон: col-12,  Планшет: col-md-8,  Ноут: col-lg-6,  Комп: col-xl-4 */}
         <div className="col-12 col-md-8 col-lg-6 col-xl-4">
           <div className="card shadow p-4 mt-5">
             <h3 className="mb-4 text-center">Sign In</h3>
