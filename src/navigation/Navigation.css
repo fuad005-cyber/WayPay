@@ -1,0 +1,69 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  z-index: 100;
+}
+
+.nav-item-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #555;
+  font-size: 12px;
+  padding: 8px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-item span {
+  font-size: 24px;
+  margin-bottom: 4px;
+  transition: transform 0.2s;
+}
+
+.nav-item.active span {
+  transform: scale(1.2);
+  color: #007bff;
+}
+
+.nav-item.active p {
+  color: #007bff;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 2px;
+  left: 25%; /* чтобы индикатор был по центру */
+}
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+  transition: transform 0.2s;
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.2);
+  fill: #007bff; /* если SVG использует fill */
+}
+

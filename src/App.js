@@ -6,14 +6,18 @@ import Header from "./header/Header";
 import Firstpage from "./first page/Firstpage";
 import Login from "./login/Login";
 import Signup from "./signup/Signup";
+import Navigation from "./navigation/Navigation"; // Анимированная навигация
 
-// Layout-компонент с Header
+// Layout-компонент с Header и Navigation
 function Layout() {
   return (
-    <>
+    <div className="app-layout">
       <Header />
-      <Outlet /> {/* Здесь будут отображаться дочерние страницы */}
-    </>
+      <div className="page-content">
+        <Outlet /> {/* Дочерние страницы */}
+      </div>
+      <Navigation /> {/* Нижняя анимированная навигация */}
+    </div>
   );
 }
 
@@ -44,6 +48,10 @@ function App() {
         { index: true, element: <Firstpage /> },
         { path: "signup", element: <Signup /> },
         { path: "login", element: <Login /> },
+        // Если хочешь, можно добавить сюда новые страницы, например Live Tracker, My Trips, Settings
+        // { path: "live-tracker", element: <LiveTracker /> },
+        // { path: "my-trips", element: <MyTrips /> },
+        // { path: "settings", element: <Settings /> },
       ],
     },
   ]);
