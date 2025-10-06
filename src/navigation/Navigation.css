@@ -29,23 +29,45 @@
   padding: 8px 0;
   width: 100%;
   text-align: center;
+  transition: color 0.2s;
 }
 
-.nav-item span {
-  font-size: 24px;
+/* SVG иконки */
+.nav-icon {
+  width: 28px;
+  height: 28px;
   margin-bottom: 4px;
-  transition: transform 0.2s;
+  transition: transform 0.2s, fill 0.2s;
+  fill: #555; /* базовый цвет */
 }
 
-.nav-item.active span {
-  transform: scale(1.2);
+/* Hover эффект для иконок */
+.nav-item:hover .nav-icon {
+  transform: scale(1.1); /* немного увеличиваем */
+  fill: #007bff;         /* подсветка при наведении */
+}
+
+/* Hover для текста */
+.nav-item:hover p {
   color: #007bff;
+}
+
+.nav-item p {
+  margin: 0;
+  transition: color 0.2s;
+}
+
+/* Активная вкладка */
+.nav-item.active .nav-icon {
+  transform: scale(1.2);
+  fill: #007bff; /* цвет активной иконки */
 }
 
 .nav-item.active p {
   color: #007bff;
 }
 
+/* Индикатор под активной вкладкой */
 .active-indicator {
   position: absolute;
   bottom: 0;
@@ -54,16 +76,5 @@
   background-color: #007bff;
   border-radius: 2px;
   left: 25%; /* чтобы индикатор был по центру */
-}
-.nav-icon {
-  width: 28px;
-  height: 28px;
-  margin-bottom: 4px;
-  transition: transform 0.2s;
-}
-
-.nav-item.active .nav-icon {
-  transform: scale(1.2);
-  fill: #007bff; /* если SVG использует fill */
 }
 
