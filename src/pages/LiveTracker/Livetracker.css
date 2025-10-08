@@ -1,0 +1,85 @@
+.livetracker-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+input::placeholder {
+  color: #999;  /* Цвет плейсхолдера */
+  font-style: italic;  /* Сделать текст курсивом, чтобы он был визуально отличим */
+}
+
+input:focus::placeholder {
+  color: transparent; /* Плейсхолдер исчезает при фокусе */
+}
+
+
+.input-group{
+    display: flex;
+
+}
+.livetracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+.livemap{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.notification-btn {
+ width: 50px; /* Ширина кнопки */
+  height: 50px; /* Высота кнопки, равная ширине */
+  border-radius: 50%; /* Закругляем углы до круга */
+  color: white; /* Цвет текста */
+  border: none; /* Убираем стандартную границу */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; /* Размер шрифта */
+  cursor: pointer; /* Курсор при наведении */
+}
+.notification-btn:hover {
+  background-color: #2980b9; /* Цвет при наведении */
+}
+
+
+.livetracker-form {
+  margin-top: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.search-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #2980b9;
+}
