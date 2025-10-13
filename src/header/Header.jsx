@@ -1,63 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div className="container">
-          {/* ЛОГОТИП слева */}
+      <nav className="navbar navbar-light shadow-sm">
+        <div className="container d-flex justify-content-between align-items-center">
+          {/* Логотип */}
           <Link className="navbar-brand fw-bold d-flex align-items-center" to="/">
-            <img
-              src="/favicon.ico"
-              alt="Logo"
-              width="40"
-              height="40"
-              className="d-inline-block align-text-top me-2"
-            />
-            WayPay
+            <img src="/favicon.ico" alt="Logo" width="40" height="40" className="me-2" />
+            MyWebsite
           </Link>
 
-          {/* ГАМБУРГЕР справа */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          {/* Гамбургер */}
+          <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
 
-          {/* МЕНЮ */}
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav align-items-lg-center me-3">
-              <li className="nav-item">
-                <a className="nav-link" href="#news">NEWS</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about">ABOUT</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">CONTACT</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#support">SUPPORT</a>
-              </li>
-            </ul>
-
-            {/* КНОПКИ LOGIN / SIGNUP */}
-            <div className="d-flex gap-2">
-              <Link to="/login" className="btn btn-success btn-sm">
-                Login
-              </Link>
-              <Link to="/signup" className="btn btn-primary btn-sm">
-                Signup
-              </Link>
-            </div>
+        {/* Самописное мобильное меню */}
+        <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+          <ul>
+            <li style={{ '--i': 0 }}><a href="#news" onClick={toggleMenu}>NEWS</a></li>
+            <li style={{ '--i': 1 }}><a href="#about" onClick={toggleMenu}>ABOUT</a></li>
+            <li style={{ '--i': 2 }}><a href="#contact" onClick={toggleMenu}>CONTACT</a></li>
+            <li style={{ '--i': 3 }}><a href="#support" onClick={toggleMenu}>SUPPORT</a></li>
+          </ul>
+          <div className="mobile-buttons">
+            <Link to="/login" className="btn btn-success btn-lg mb-3" onClick={toggleMenu}>Login</Link>
+            <Link to="/signup" className="btn btn-primary btn-lg" onClick={toggleMenu}>Signup</Link>
           </div>
         </div>
       </nav>
