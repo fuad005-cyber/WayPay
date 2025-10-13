@@ -4,7 +4,7 @@ import "./signup.css";
 
 const Signup = () => {
   return (
-    <div className="container">
+    <div className="container-2">
       <div className="row justify-content-center">
         {/* 📱 Телефон: col-12 | 📟 Планшет: col-md-8 | 💻 Ноут: col-lg-6 | 🖥 Комп: col-xl-4 */}
         <div className="col-12 col-md-8 col-lg-6 col-xl-4">
