@@ -8,6 +8,11 @@
 .nav-item {
     position: relative;
 }
+.container img {
+    width: 62px;
+    height: 60px;
+
+}
 .nav-item::before{
     content: "";
     width: 0%;
