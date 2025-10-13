@@ -1,17 +1,25 @@
-import React from 'react'
-import './header.css'
-import { Link } from "react-router-dom";
+import React from 'react';
+import './header.css';
+import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div className="container">
-          {/* Логотип или название */}
-          <Link className="navbar-brand fw-bold" to="/">
-            <img src="favicon.ico" alt="" />
+          {/* ЛОГОТИП слева */}
+          <Link className="navbar-brand fw-bold d-flex align-items-center" to="/">
+            <img
+              src="/favicon.ico"
+              alt="Logo"
+              width="40"
+              height="40"
+              className="d-inline-block align-text-top me-2"
+            />
+            WayPay
           </Link>
 
-          {/* Кнопка гамбургер для мобильных */}
+          {/* ГАМБУРГЕР справа */}
           <button
             className="navbar-toggler"
             type="button"
@@ -24,56 +32,37 @@ function Header() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Меню */}
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          {/* МЕНЮ */}
+          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul className="navbar-nav align-items-lg-center me-3">
               <li className="nav-item">
-                <Link className="nav-link" to="#news">NEWS</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#about">ABOUT</Link>
+                <a className="nav-link" href="#news">NEWS</a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#contact">CONTACT</Link>
-              </li>
-              <li className="nav-item"><li><hr class="dropdown-divider"/></li>
-                
+                <a className="nav-link" href="#about">ABOUT</a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#support">SUPPORT</Link>
+                <a className="nav-link" href="#contact">CONTACT</a>
               </li>
-               <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-              
-              
+              <li className="nav-item">
+                <a className="nav-link" href="#support">SUPPORT</a>
+              </li>
             </ul>
 
-            
-
-            {/* Кнопки Login / Signup */}
+            {/* КНОПКИ LOGIN / SIGNUP */}
             <div className="d-flex gap-2">
-              <Link to="/login" className="btn btn-success">
+              <Link to="/login" className="btn btn-success btn-sm">
                 Login
               </Link>
-              <Link to="/signup" className="btn btn-primary">
+              <Link to="/signup" className="btn btn-primary btn-sm">
                 Signup
               </Link>
             </div>
           </div>
         </div>
       </nav>
-
-      
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
