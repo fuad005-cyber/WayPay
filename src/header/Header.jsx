@@ -18,7 +18,7 @@ function Header() {
           {/* Логотип */}
           <Link className="navbar-brand fw-bold d-flex align-items-center" to="/">
             <img src="/favicon.ico" alt="Logo" width="40" height="40" className="me-2" />
-            MyWebsite
+            WayPay
           </Link>
 
           {/* Гамбургер */}
